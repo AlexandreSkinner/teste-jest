@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:stage": "jest",
+    "test": "jest --passWithNoTests --watch",
+    "test:stage": "jest --passWithNoTests",
     "prepare": "husky install",
     "install": "npm test -- --findRelatedTests"
   },
