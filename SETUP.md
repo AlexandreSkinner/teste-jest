@@ -22,7 +22,7 @@
   » dist
 
 # 05 - Instalar Conventional Commit
-  Biblioteca que garante que os commits respeitarão a regra do Conventional Commit
+  Biblioteca para garante que os commits respeitarão a regra do Conventional Commit
 
   ~/projeto/licitacao
   » npm i -D git-commit-msg-linter
