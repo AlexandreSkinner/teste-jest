@@ -33,6 +33,9 @@
   ~/projeto/licitacao
   » npm i -D typescript @types/node
 
+  Caso queira atualizar o typescript para a ultima versão
+  » npm update -D typescript@latest
+
 # 07 - Inicializando projeto Typescript
   Cria arquivo de configuração do compilador typescript (tsconfig.json)
 
@@ -52,7 +55,7 @@
   » npx prisma init
 
 # 100 - Instalando o Jest
-  Instala o Jest, a biblioteca de tipos para o typescript> Instala também
+  Instala o Jest, a biblioteca de tipos para o typescript. Instala também
   o ts-jest porque o jest com typescript necessita trabalhar em conjunto com o ts-node
 
   ~/projeto/licitacao
