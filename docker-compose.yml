@@ -1,4 +1,4 @@
-version: '2.17'
+version: '3.8'
 
 volumes:
   pg_data:
@@ -7,6 +7,7 @@ services:
   database:
     container_name: postgres_container
     image: postgres:15.2-alpine
+    env_file: .env
     environment:
       - POSTGRES_USER=${DATABASE_USER}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
@@ -15,3 +16,4 @@ services:
       - "5433:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
+
