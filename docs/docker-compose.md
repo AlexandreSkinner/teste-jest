@@ -27,4 +27,8 @@ a aplicação (node) e outro para o banco de dados.
 » docker-compose stop
 
 # Cria o containers com postgres na mão
-» docker run --name db_postgresql -e "POSTGRES_USER=postgres" -e "POSTGRES_PASSWORD=Skydocker" -v pg_data:/var/lib/postgresql/data -p 5433:5432 -d postgres:15.2-alpine
+» docker run --name db_postgresql -e "POSTGRES_USER=<username>" -e "POSTGRES_PASSWORD=<password>" -v pg_data:/var/lib/postgresql/data -p 5433:5432 -d postgres:15.2-alpine
+
+# Dockerfile x Docker-composefile
+- Docker file é para criarmos a imagem da nossas aplicação.
+- Docker-compose file é a receita para montar os nossos containers.
