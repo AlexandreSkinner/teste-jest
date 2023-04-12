@@ -1,4 +1,4 @@
-import { soma, subtracao } from './operacoes';
+import { soma, subtracao } from '../src/operacoes';
 describe('testar operação aritmetica', () => {
   test('soma', () => {
     let resultado = soma(2, 1);
