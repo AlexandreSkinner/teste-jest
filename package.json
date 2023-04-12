@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --passWithNoTests --runInBand --watch",
-    "test:stage": "jest --passWithNoTests --findRelatedTest",
+    "test:staged": "jest --passWithNoTests --findRelatedTests",
     "prepare": "husky install",
     "install": "npm test -- --findRelatedTests"
   },
