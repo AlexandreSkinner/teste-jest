@@ -88,6 +88,32 @@ module.exports = {
   }
 };
 
+# Executando os teste.
+Para executar o jest direto ou através de um script
+
+» npx jest
+» npm run <script>
+
+# Snippet para Jest.
+Abaixo temos um snippet para evitarmos digitar código repetido toda vez
+que formos elaborar um teste. O texto do prefixo é que "busca" o snippet
+
+{
+  "Jest Test": {
+    "prefix": ["test"],
+      "body": [
+        "describe('$1', () => {",
+        "  test('$2', () => {",
+        "$3",
+        "  });",
+        "});",
+        ""
+      ],
+    "description": "A describe block for Jest"
+  }
+}
+
+
 -----------------------------------------------------------------------------
 --- linter
 -----------------------------------------------------------------------------
