@@ -1,77 +1,94 @@
 # 01 - Criar a pasta do Projeto.
+Cria pasta do projeto como uma subpasta da pasta **projeto**
 
+```
   ~/projeto
   » mkdir licitacao
+```
 
-# 02 - Inicializar o Controle de Versão
-  Inicializa o controle de versão na pasta do Projeto
-
+# 02 - Inicializar o Controle de Versão.
+  Inicializa o controle de versão na pasta do Projeto.
+```
   ~/projeto/licitacao
   » git init
+```
 
 # 03 - Inicializar o Projeto.
-  Este comando cria um arquivo do projeto denominado package.json que
-  controla as dependências das bibliotecas utilizadas no projeto
-
+  Este comando cria um arquivo do projeto denominado **package.json** que
+  controla as dependências das bibliotecas utilizadas no projeto.
+```
   ~/projeto/licitacao
   » npm init -y
+```
 
 # 04 - Criar arquivo .gitignore
-  Objetivo é informar as pastas que não serão monitoradas pelo controle de versão
+  Objetivo é informar as pastas que não serão monitoradas pelo controle de versão go **GIT**.
+```
   » node_modulo
   » dist
+```
 
-# 05 - Instalar Conventional Commit
-  Biblioteca para garante que os commits respeitarão a regra do Conventional Commit
-
+# 05 - Instalar Conventional Commit.
+  Biblioteca para garantir que os commits respeitarão a regra do _"Conventional Commit"_.
+```
   ~/projeto/licitacao
   » npm i -D git-commit-msg-linter
+```
 
-# 06 - Instalar o typescript
+# 06 - Instalar o typescript.
   Além de instalar o typescript instala as tipagens para o node, ajudando ao IntelliSense
-
+```
   ~/projeto/licitacao
   » npm i -D typescript @types/node
-
+```
   Caso queira atualizar o typescript para a ultima versão
+```
   » npm update -D typescript@latest
+```
 
-# 07 - Inicializando projeto Typescript
+# 07 - Inicializando projeto Typescript.
   Cria arquivo de configuração do compilador typescript (tsconfig.json)
-
+```
   ~/projeto/licitacao
   » npx tsc --init
+```
 
-# 98 - Instalando o Prisma
+# 98 - Instalando o Prisma.
   Instala o ORM Prisma junto com a CLI
-
+```
   ~/projeto/licitacao
   » npm install prisma @prisma/client --save-dev
-
-# 99 - Inicializando o Prisma
+```
+# 99 - Inicializando o Prisma.
   Cria uma pasta denominada Prisma e outra pasta .env
-
+```
   ~/projeto/licitacao
   » npx prisma init
-
-# 100 - Instalando o Jest
+```
+# 100 - Instalando o Jest.
   Instala o Jest, a biblioteca de tipos para o typescript. Instala também
   o ts-jest porque o jest com typescript necessita trabalhar em conjunto com o ts-node
 
+```
   ~/projeto/licitacao
   » npm i jest -D
   » npm i @types/jest -D
   » npm i ts-jest -D
+```
 
-  # Inicializando o jest
+  ## Inicializando o jest.
   A inicialização do Jest cria um arquivo de configuração
-
+```
     ~/projeto/licitacao
     » npm jest --init
-
-# ==> Arquivo de configuração (jest.config.js)
+```
+## Arquivo de configuração (jest.config.js).
+```
 module.exports = {
-  roots: ['<rootDir>/tests'],
+  roots: [
+    '<rootDir>/src',
+    '<rootDir>/tests'
+  ],
   collectCoverageFrom: [
     '<rootDir>/src/**/*.ts',
     '!<rootDir>/src/main/**'
@@ -83,21 +100,24 @@ module.exports = {
     '.+\\.ts$': 'ts-jest'
   },
   moduleNameMapper: {
-    '@/tests/(.*)': '<rootDir>/tests/$1',
-    '@/(.*)': '<rootDir>/src/$1'
-  }
+    '@/tests/(.+)': '<rootDir>/tests/$1',
+    '@/(.+)': '<rootDir>/src/$1'
+  },
+  clearMocks: true
 };
 
-# Executando os teste.
+```
+## Executando os teste.
 Para executar o jest direto ou através de um script
-
+```
 » npx jest
 » npm run <script>
+```
 
-# Snippet para Jest.
+## Snippet para Jest.
 Abaixo temos um snippet para evitarmos digitar código repetido toda vez
-que formos elaborar um teste. O texto do prefixo é que "busca" o snippet
-
+que formos elaborar um teste. O texto do prefixo é chave para "buscar" o snippet.
+```
 {
   "Jest Test": {
     "prefix": ["test"],
@@ -112,34 +132,42 @@ que formos elaborar um teste. O texto do prefixo é que "busca" o snippet
     "description": "A describe block for Jest"
   }
 }
+```
 
 
------------------------------------------------------------------------------
---- linter
------------------------------------------------------------------------------
-# 110 - Instalando o eslint
+# linter
+
+## 110 - Instalando o eslint
+Realiza a instalação eslint bem como a configuração do mesmo.
+```
   ~/projeto/licitacao
   » npm i --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint eslint-plugin-node
-
-  # Inicializando o eslint
+```
+  ## Inicializando o eslint
+```
   ~/projeto/licitacao
   » npm init @eslint/config
-
-  # Inicializando o Husky
-    Permite utilizarmos os husk do git para garantir que não iremos commitar código fora das
+```
+  ## Inicializando o Husky
+```
+    Permite utilizarmos os hook do git para garantir que não iremos commitar código fora das
     diretrizes parametrizadas do lint
 
     ~/projeto/licitacao
     » npm install husky -D
     » npm install -D lint-staged
-
-    Cria arquivo de pre-commit com o comando que está entre aspas
+```
+```
+    Cria arquivo de pre-commit com o comando que está entre aspas.
+    Fazendo com que um commit que não passe no teste realizado pelo Jest não seja efetivado.
 
     ~/projeto/licitacao
     » npx husky install
     » npx husky add .husky/pre-commit "npx lint-staged"
+```
 
-# ==> Arquivo de configuração (.eslintrc.json)
+## Arquivo de configuração (.eslintrc.json)
+```
 {
     "env": {
         "node": true,
@@ -171,10 +199,10 @@ que formos elaborar um teste. O texto do prefixo é que "busca" o snippet
         "import/export": "off"
     }
 }
+```
+# Arquivo de configuração do typescript - tsconfig.json
 
------------------------------------------------------------------------------
----  Arquivo de configuração do typescript - tsconfig.json
------------------------------------------------------------------------------
+```
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
@@ -214,6 +242,8 @@ que formos elaborar um teste. O texto do prefixo é que "busca" o snippet
     "dist/**/*"
   ]
 }
+```
 
-
+# videos do YouTube de referencia
+```
 https://www.youtube.com/watch?v=RO3l_xy7GeM
